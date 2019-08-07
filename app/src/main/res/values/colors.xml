@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#040afb</color>
+    <color name="primaryLink">#a9cdf0</color>
+    <color name="textPrimary">#212121</color>
+    <color name="secondaryLink">#ab5685</color>
+    <color name="backGround">#f3f6f9</color>
+    <color name="white">#fff</color>
+    <color name="colorPrimaryDark">#fff</color>
+    <color name="colorAccent">#fff</color>
+    <color name="orange">#fff</color>
+    <color name="orange2">#fff</color>
+</resources>
