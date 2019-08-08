@@ -17,16 +17,19 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.diki.myprofile.Preferences;
 import com.diki.myprofile.R;
 
 public class ActivitySignUp extends AppCompatActivity {
     private EditText mName,mPasswd, mEmail;
+    private TextView mRegister;
     private Button mRegisterBtn;
-    private String Name,Password;
+    private String Name,Email,Password;
     public static final String PREFERENCE= "preference";
     public static final String PREF_NAME = "name";
+    public static final String PREF_EMAIL = "email";
     public static final String PREF_PASSWD = "passwd";
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -36,6 +39,7 @@ public class ActivitySignUp extends AppCompatActivity {
         mPasswd = (EditText)findViewById(R.id.passwordLogin);
         mEmail = (EditText)findViewById(R.id.emailSignup);
         mRegisterBtn = (Button)findViewById(R.id.btnSignup);
+        mRegister = (TextView) findViewById(R.id.login) ;
         mRegisterBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -44,18 +48,27 @@ public class ActivitySignUp extends AppCompatActivity {
                     SharedPreferences.Editor mEditor = mSharedPreference.edit();
                     mEditor.putString(PREF_NAME,Name);
                     mEditor.putString(PREF_PASSWD,Password);
+                    mEditor.putString(PREF_EMAIL,Email);
                     mEditor.apply();
                     finish();
                 }
+
             }
 
-
+        });
+        mRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ActivitySignUp.this,ActivityLogin.class);
+                startActivity(intent);
+            }
         });
     }
 
     private boolean validUserData() {
         Name = mName.getText().toString().trim();
         Password = mPasswd.getText().toString().trim();
-        return !(Name.isEmpty() || Password.isEmpty());
+        Email = mEmail.getText().toString().trim();
+        return !(Name.isEmpty() || Password.isEmpty() || Email.isEmpty());
     }
 }

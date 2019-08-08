@@ -56,14 +56,14 @@ public class ActivityLogin extends AppCompatActivity {
                             SharedPreferences.Editor mEditor = mSharedPreferences.edit();
                             mEditor.putString(PREF_SKIP_LOGIN,"skip");
                             mEditor.apply();
-                            Intent intent = new Intent(ActivityLogin.this,MainActivity.class);
+                            Intent intent = new Intent(ActivityLogin.this,HomeActivity.class);
                             startActivity(intent);
                             finish();
                         }else {
                             Toast.makeText(getApplicationContext(),"Username Not Found, Please SignUp", Toast.LENGTH_SHORT).show();
                         }
                     }else {
-                        Toast.makeText(getApplicationContext(),"Unable to Login Plz Enter Valid Data !!",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),"Unable to Login Please Enter Valid Data !!",Toast.LENGTH_SHORT).show();
                     }
                 }
             });
