@@ -26,7 +26,7 @@ public class ContactFragment extends Fragment implements ContactContract.View {
     private ProgressBar progressBar;
     private ContactContract.Presenter mPresenter;
     private TextView telepon,email,instagram,twitter,facebook;
-    private Button button1,button2,button3,button4,button5;
+    private Button button1,button2,button3,button4,button5,button6;
 
 
     public ContactFragment() {
@@ -48,11 +48,7 @@ public class ContactFragment extends Fragment implements ContactContract.View {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_contact, container, false);
-        telepon = view.findViewById(R.id.tv_contact_telepon);
-        email = view.findViewById(R.id.tv_contact_email);
-        instagram = view.findViewById(R.id.tv_contact_instagram);
-        twitter = view.findViewById(R.id.tv_contact_twitter);
-        facebook = view.findViewById(R.id.tv_contact_facebook);
+
         progressBar = view.findViewById(R.id.pb_contact);
 
         button1 = view.findViewById(R.id.telp);
@@ -60,6 +56,7 @@ public class ContactFragment extends Fragment implements ContactContract.View {
         button3 = view.findViewById(R.id.inst);
         button4 = view.findViewById(R.id.twitt);
         button5 = view.findViewById(R.id.fb);
+        button6 = view.findViewById(R.id.git);
 
         button1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
@@ -127,7 +124,20 @@ public class ContactFragment extends Fragment implements ContactContract.View {
             }
         });
 
+        button6.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+                Uri uri = Uri.parse("http://m.facebook.com/diki.supriadi");
+                Intent likeIng = new Intent(Intent.ACTION_VIEW, uri);
+                likeIng.setPackage("com.facebook.android");
 
+                try {
+                    startActivity(likeIng);
+                } catch (ActivityNotFoundException e) {
+                    startActivity(new Intent(Intent.ACTION_VIEW,
+                            Uri.parse("https://github.com/dikisp")));
+                }
+            }
+        });
 
         return view;
     }

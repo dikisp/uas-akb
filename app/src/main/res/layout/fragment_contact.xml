@@ -36,163 +36,100 @@
                     android:textAllCaps="true"
                     android:textSize="32sp" />
 
-                <!--<LinearLayout-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginStart="@dimen/horizontal_margin"-->
-                    <!--android:layout_marginTop="@dimen/vertical_margin"-->
-                    <!--android:layout_marginEnd="@dimen/horizontal_margin"-->
-                    <!--android:orientation="horizontal">-->
 
-                    <!--<TextView-->
-                        <!--android:layout_width="0dp"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_weight="1"-->
-                        <!--android:text="Telepon" />-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
 
-                    <!--<TextView-->
-                        <!--android:id="@+id/tv_contact_telepon"-->
-                        <!--android:layout_width="0dp"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_weight="1"-->
-                        <!--android:text="082316901623" />-->
-                <!--</LinearLayout>-->
+                    <Button
+                        android:id="@+id/telp"
+                        android:layout_marginStart="16dp"
+                        android:layout_width="183dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/animation_list"
+                        android:layout_gravity="center"
+                        android:drawableLeft="@drawable/ic_phone_receiver"
+                        android:text="Call" />
 
-                <!--<LinearLayout-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginStart="@dimen/horizontal_margin"-->
-                    <!--android:layout_marginTop="@dimen/vertical_margin"-->
-                    <!--android:layout_marginEnd="@dimen/horizontal_margin"-->
-                    <!--android:orientation="horizontal">-->
+                    <Button
+                        android:id="@+id/email"
+                        android:layout_width="183dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/animation_list"
+                        android:layout_gravity="center"
+                        android:drawableLeft="@drawable/ic_email_black_24dp"
+                        android:text="Email" />
 
-                    <!--<TextView-->
-                        <!--android:layout_width="0dp"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_weight="1"-->
-                        <!--android:text="Email" />-->
 
-                    <!--<TextView-->
-                        <!--android:id="@+id/tv_contact_email"-->
-                        <!--android:layout_width="0dp"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_weight="1"-->
-                        <!--android:text="dikisupriadi021a@gmail.com" />-->
-                <!--</LinearLayout>-->
-
-                <!--<LinearLayout-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginStart="@dimen/horizontal_margin"-->
-                    <!--android:layout_marginTop="@dimen/vertical_margin"-->
-                    <!--android:layout_marginEnd="@dimen/horizontal_margin"-->
-                    <!--android:orientation="horizontal">-->
-
-                    <!--<TextView-->
-                        <!--android:layout_width="0dp"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_weight="1"-->
-                        <!--android:text="Instagram" />-->
-
-                    <!--<TextView-->
-                        <!--android:id="@+id/tv_contact_instagram"-->
-                        <!--android:layout_width="0dp"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_weight="1"-->
-                        <!--android:text="suara_hati69" />-->
-                <!--</LinearLayout>-->
-
-                <!--<LinearLayout-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginStart="@dimen/horizontal_margin"-->
-                    <!--android:layout_marginTop="@dimen/vertical_margin"-->
-                    <!--android:layout_marginEnd="@dimen/horizontal_margin"-->
-                    <!--android:orientation="horizontal">-->
-
-                    <!--<TextView-->
-                        <!--android:layout_width="0dp"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_weight="1"-->
-                        <!--android:text="Twitter" />-->
-
-                    <!--<TextView-->
-                        <!--android:id="@+id/tv_contact_twitter"-->
-                        <!--android:layout_width="0dp"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_weight="1"-->
-                        <!--android:text="suara_hati69" />-->
-                <!--</LinearLayout>-->
-
-                <!--<LinearLayout-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginStart="@dimen/horizontal_margin"-->
-                    <!--android:layout_marginTop="@dimen/vertical_margin"-->
-                    <!--android:layout_marginEnd="@dimen/horizontal_margin"-->
-                    <!--android:orientation="horizontal">-->
-
-                    <!--<TextView-->
-                        <!--android:layout_width="0dp"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_weight="1"-->
-                        <!--android:text="Facebook" />-->
-
-                    <!--<TextView-->
-                        <!--android:id="@+id/tv_contact_facebook"-->
-                        <!--android:layout_width="0dp"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_weight="1"-->
-                        <!--android:text="Diki Supriadi" />-->
-                <!--</LinearLayout>-->
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="@dimen/activity_vertical_margin"
-                    android:orientation="vertical">
-
-                    <Button
-                        android:id="@+id/telp"
-                        android:layout_width="376dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:layout_gravity="center"
-                        android:background="@drawable/animation_list"
-                        android:drawableLeft="@drawable/diki"
-                        android:text="Call" />
-
-                    <Button
-                        android:id="@+id/email"
-                        android:layout_width="380dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="Email" />
-
+                    android:orientation="horizontal">
 
                     <Button
                         android:id="@+id/inst"
-                        android:layout_width="380dp"
+                        android:layout_width="183dp"
+                        android:background="@drawable/animation_list"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:drawableLeft="@drawable/ic_instagram_logo"
                         android:text="Instagram" />
 
                     <Button
                         android:id="@+id/twitt"
-                        android:layout_width="380dp"
+                        android:layout_width="183dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:layout_marginStart="16dp"
+                        android:background="@drawable/animation_list"
+                        android:drawableLeft="@drawable/ic_twitter_logo_silhouette"
                         android:text="Twitter" />
+                </LinearLayout>
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="16dp"
+                    android:orientation="horizontal">
 
                     <Button
                         android:id="@+id/fb"
-                        android:layout_width="381dp"
+                        android:layout_width="183dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:background="@drawable/animation_list"
+                        android:drawableLeft="@drawable/ic_facebook"
                         android:text="Facebook" />
 
+                    <Button
+                        android:id="@+id/git"
+                        android:layout_width="183dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@drawable/animation_list"
+                        android:drawableLeft="@drawable/ic_github_big_logo"
+                        android:text="Github" />
+
                 </LinearLayout>
+                <TextView
+                    android:layout_margin="@dimen/activity_vertical_margin"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/textPrimary"
+                    android:text="Address"/>
+
+                <ImageView
+                    android:layout_marginStart="@dimen/activity_vertical_margin"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="16dp"
+                    android:src="@drawable/location"/>
 
 
             </LinearLayout>
