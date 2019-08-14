@@ -58,12 +58,15 @@ public class ContactFragment extends Fragment implements ContactContract.View {
         button5 = view.findViewById(R.id.fb);
         button6 = view.findViewById(R.id.git);
 
-        button1.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View arg0) {
-                Intent callIntent = new Intent(Intent.ACTION_CALL);
-                callIntent.setData(Uri.parse("tel:082316901623"));
+        button1.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                 String phoneNumber = "082316901623";
+                Intent dialPhoneIntent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+phoneNumber));
 
-                startActivity(callIntent);
+                startActivity(dialPhoneIntent);
             }
         });
 

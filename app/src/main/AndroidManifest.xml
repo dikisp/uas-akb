@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".login.Login"></activity>
+        <activity android:name=".login.logout"></activity>
+        <activity android:name=".login.Login" />
         <activity android:name=".main.HomeActivity" />
         <activity android:name=".sign_up.ActivitySignUp" />
         <activity android:name=".friend_detail.FriendDetailActivity" />

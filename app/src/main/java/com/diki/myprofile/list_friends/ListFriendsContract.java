@@ -8,7 +8,7 @@ import com.diki.myprofile.BaseView;
 import com.diki.myprofile.Model.Friend;
 
 public class ListFriendsContract {
-    interface View extends BaseView<Presenter>{
+    public interface View extends BaseView<Presenter>{
         void setLoadingIndicator(boolean active);
 
         void showListFriends();
@@ -16,7 +16,7 @@ public class ListFriendsContract {
         void showFriendDetailUI(String friend_id);
     }
 
-    interface Presenter extends BasePresenter {
+    public interface Presenter extends BasePresenter {
         void loadListFriends();
 
         void addNewFriend();

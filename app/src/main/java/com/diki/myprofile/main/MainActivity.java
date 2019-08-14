@@ -114,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
         pagerAdapter.addFragment(new ProfileFragment());
         pagerAdapter.addFragment(new ContactFragment());
         pagerAdapter.addFragment(new ListFriendsFragment());
+//        pagerAdapter.addFragment(new);
         viewPager.setAdapter(pagerAdapter);
     }
 
