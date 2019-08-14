@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backGround"
-    tools:context=".login.ActivityLogin">
+    tools:context=".login.Login">
 
 
     <EditText
@@ -40,13 +40,13 @@
         app:layout_constraintTop_toBottomOf="@id/usernameSignup" />
 
     <EditText
-        android:id="@+id/emailSignup"
+        android:id="@+id/rePassword"
         android:layout_width="368dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
         android:ems="10"
         android:maxLines="1"
-        android:hint="Email"
+        android:hint="Retype Password"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.703"
@@ -80,7 +80,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.655"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailSignup" />
+        app:layout_constraintTop_toBottomOf="@+id/rePassword" />
 
     <TextView
         android:id="@+id/textView"
