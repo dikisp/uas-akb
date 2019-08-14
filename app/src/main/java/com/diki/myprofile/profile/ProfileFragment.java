@@ -25,7 +25,6 @@ public class ProfileFragment extends Fragment implements ProfileContract.View {
     private ProfileContract.Presenter mPresenter;
     private ProgressBar progressBar;
     private TextView nim, nama, kelas, deskripsi;
-    private Button button;
 
     public ProfileFragment() {
         // Required empty public constructor

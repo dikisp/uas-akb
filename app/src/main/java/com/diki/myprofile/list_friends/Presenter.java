@@ -30,8 +30,6 @@ public class Presenter extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_list_friends);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.barTool);
-        setSupportActionBar(toolbar);
 
         lv= (ListView) findViewById(R.id.lv);
 

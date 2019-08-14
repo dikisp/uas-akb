@@ -7,9 +7,15 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
+import com.diki.myprofile.Preferences;
+import com.diki.myprofile.login.Login;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.diki.myprofile.R;
 import com.diki.myprofile.contact.ContactFragment;
@@ -28,6 +34,21 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        TextView nama = findViewById(R.id.tv_namaMain);
+
+        nama.setText(Preferences.getLoggedInUser(getBaseContext()));
+
+
+        findViewById(R.id.button_logoutMain).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Preferences.clearLoggedInUser(getBaseContext());
+                startActivity(new Intent(getBaseContext(), Login.class));
+                finish();
+            }
+        });
 
         mPager = findViewById(R.id.vp_main);
 
@@ -95,4 +116,22 @@ public class MainActivity extends AppCompatActivity {
         pagerAdapter.addFragment(new ListFriendsFragment());
         viewPager.setAdapter(pagerAdapter);
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+       if (item.getItemId() == R.id.logout){
+           Preferences.clearLoggedInUser(getBaseContext());
+           startActivity(new Intent(getBaseContext(),Login.class));
+           finish();
+       }
+        return super.onOptionsItemSelected(item);
+    }
+
+
 }
