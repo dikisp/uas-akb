@@ -25,6 +25,7 @@ public class ProfileFragment extends Fragment implements ProfileContract.View {
     private ProfileContract.Presenter mPresenter;
     private ProgressBar progressBar;
     private TextView nim, nama, kelas, deskripsi;
+    private Button button1;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -41,14 +42,29 @@ public class ProfileFragment extends Fragment implements ProfileContract.View {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        View view = inflater.inflate(R.layout.fragment_profile, container, false);
+        View view = inflater.inflate(R.layout.profil_fragment, container, false);
 
         nim = view.findViewById(R.id.tvprofile_nim);
         nama = view.findViewById(R.id.tvprofile_nama);
         kelas = view.findViewById(R.id.tvprofile_kelas);
         deskripsi = view.findViewById(R.id.tvprofile_deskripsi);
+        button1 = view.findViewById(R.id.button);
 
         progressBar = view.findViewById(R.id.pb_profile);
+
+
+        button1.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                String phoneNumber = "082316901623";
+                Intent dialPhoneIntent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+phoneNumber));
+
+                startActivity(dialPhoneIntent);
+            }
+        });
+
 
 
         return view;

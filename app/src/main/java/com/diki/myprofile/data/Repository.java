@@ -14,7 +14,7 @@ public class Repository {
             "10116352",
             "DIKI SUPRIADI",
             "IF - 8",
-            "I HOPE TOMMOROW CAN THE BEST TODAY"
+            "`I am a student majoring in informatics engineering, I like to eat a lot and eat halal foods, especially eating friends`"
     };
 
      static String[] contactData = new String[]{

@@ -12,6 +12,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -27,6 +29,7 @@ public class ContactFragment extends Fragment implements ContactContract.View {
     private ContactContract.Presenter mPresenter;
     private TextView telepon,email,instagram,twitter,facebook;
     private Button button1,button2,button3,button4,button5,button6;
+    private ImageView imageView;
 
 
     public ContactFragment() {
@@ -57,6 +60,7 @@ public class ContactFragment extends Fragment implements ContactContract.View {
         button4 = view.findViewById(R.id.twitt);
         button5 = view.findViewById(R.id.fb);
         button6 = view.findViewById(R.id.git);
+        imageView = view.findViewById(R.id.maps);
 
         button1.setOnClickListener(new View.OnClickListener()
         {
@@ -140,6 +144,18 @@ public class ContactFragment extends Fragment implements ContactContract.View {
                             Uri.parse("https://github.com/dikisp")));
                 }
             }
+        });
+
+
+        imageView.setOnClickListener( new View.OnClickListener(){
+            @Override
+            public void onClick(View v)
+            {
+                Uri gmmIntentUri = Uri.parse("https://www.google.com/maps/place/Bangbayang+Squad/@-6.8810619,107.6174528,18z/data=!3m1!4b1!4m5!3m4!1s0x2e68e6fc2ddeed57:0xac57bbb9f323ea1!8m2!3d-6.8810619!4d107.6180215");
+                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                startActivity(mapIntent);
+            }
+
         });
 
         return view;
