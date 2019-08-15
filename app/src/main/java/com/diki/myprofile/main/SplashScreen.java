@@ -50,14 +50,7 @@ public class SplashScreen extends AppCompatActivity {
             finish();
         }
 
-        button = (Button) findViewById(R.id.btn_finish_vp);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), Login.class);
-                startActivity(intent);
-            }
-        });
+
 
     }
 }

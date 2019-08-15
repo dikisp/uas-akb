@@ -47,7 +47,7 @@
         android:ems="10"
         android:maxLines="1"
         android:hint="Retype Password"
-        android:inputType="textEmailAddress"
+        android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.703"
         app:layout_constraintStart_toStartOf="parent"
