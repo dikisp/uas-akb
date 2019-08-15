@@ -27,7 +27,7 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         mViewUser=findViewById(R.id.usernameLogin);
-        mViewPassword =findViewById(R.id.passwordLogin);
+        mViewPassword =findViewById(R.id.password_login);
         mViewPassword.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
