@@ -125,7 +125,6 @@ public class AddFriend extends AppCompatActivity implements View.OnClickListener
         new AsyncTask<Void, Void, Long>(){
             @Override
             protected Long doInBackground(Void... voids) {
-                // melakukan proses insert data
                 long status = (long) db.dao().insertFriend(friend);
                 return status;
             }
@@ -138,7 +137,6 @@ public class AddFriend extends AppCompatActivity implements View.OnClickListener
     }
 
     public static Intent getActIntent(Activity activity) {
-        // kode untuk pengambilan Intent
         return new Intent(activity, AddFriend.class);
     }
 }

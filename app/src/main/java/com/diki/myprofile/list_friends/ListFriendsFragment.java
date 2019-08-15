@@ -3,21 +3,40 @@ package com.diki.myprofile.list_friends;
 // 10116352
 // DIKI SUPRIADI
 // IF-8
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
 
+import com.diki.myprofile.Model.AppDatabase;
 import com.diki.myprofile.Model.Friend;
+import com.diki.myprofile.Model.FriendData;
 import com.diki.myprofile.R;
+import com.diki.myprofile.main.MainActivity;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 
 public class ListFriendsFragment extends Fragment implements ListFriendsContract.View {
 
-    private ListFriendsContract.Presenter mPresenter;
+
+    Button addFriend;
+    RecyclerView rvView;
+
+    private ArrayList<FriendData> daftarFriend;
+    private AppDatabase db;
+    private RecyclerView.Adapter adapter;
+    private RecyclerView.LayoutManager layoutManager;
 
 
     public ListFriendsFragment() {
@@ -25,21 +44,52 @@ public class ListFriendsFragment extends Fragment implements ListFriendsContract
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    }
-
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_list_friends, container, false);
-    }
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
+        View view = inflater.inflate(R.layout.fragment_list_friends, container, false);
+
+        daftarFriend = new ArrayList<>();
+
+        db = Room.databaseBuilder(this.getContext().getApplicationContext(),
+                AppDatabase.class, "db").allowMainThreadQueries().build();
+        final FragmentActivity c = getActivity();
+
+        rvView = view.findViewById(R.id.rv_friend);
+        rvView.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(c);
+        rvView.setLayoutManager(layoutManager);
+
+        daftarFriend.addAll(Arrays.asList(db.dao().selectAllFriend()));
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                final crud_adapter adapter = new crud_adapter(daftarFriend, c);
+                c.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        rvView.setAdapter(adapter);
+                    }
+                });
+            }
+        }).start();
+
+
+        addFriend = (Button) view.findViewById(R.id.btn_add_friend);
+
+        addFriend.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent addFriendIntent = new Intent(getActivity(), AddFriend.class);
+
+                startActivity(addFriendIntent);
+            }
+        });
+
+        return view;
 
     }
 
@@ -55,25 +105,11 @@ public class ListFriendsFragment extends Fragment implements ListFriendsContract
 
     @Override
     public void showFriendDetailUI(String friend_id) {
-        // intent ke friend detail
+
     }
 
     @Override
     public void setPresenter(ListFriendsContract.Presenter presenter) {
 
-    }
-
-
-
-    // Saat salah satu item pada list di klik
-    ListFriendsListener mItemListener = new ListFriendsListener() {
-        @Override
-        public void onListFriendClick(Friend clickedListFriend) {
-           mPresenter.openDetailFriendDetail(clickedListFriend);
-        }
-    };
-
-    interface ListFriendsListener {
-        void onListFriendClick(Friend clickedListFriend);
     }
 }

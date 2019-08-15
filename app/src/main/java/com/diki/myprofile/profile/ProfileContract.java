@@ -9,7 +9,7 @@ import com.diki.myprofile.Model.Profile;
 
 import java.util.List;
 
-public class ProfileContract {
+public class  ProfileContract {
 
     interface View extends BaseView<Presenter>{
         void setLoadingIndicator(boolean active);

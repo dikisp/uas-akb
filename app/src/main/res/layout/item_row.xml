@@ -29,19 +29,33 @@
             android:id="@+id/tv_friend_nama"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
+            android:layout_above="@+id/cv_friend"
+            android:layout_alignStart="@+id/cv_friend"
+            android:textSize="16dp"
             android:textStyle="bold"
             tools:text="DIKI SUPRIADI" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:height="32dp"
             android:id="@+id/tv_item_alamat"
             tools:text="Jalan Dipatiukur No 112 - 114 Coblong Bandung"/>
+
         <TextView
             android:id="@+id/tv_item_phone"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="082xxxxxxxxxxxx"/>
+            android:text="082316901623"/>
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/moreTool"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="-27dp"
+        android:layout_marginLeft="-27dp"
+        android:layout_toEndOf="@+id/cv_friend"
+        android:layout_toRightOf="@+id/cv_friend"
+        android:src="@drawable/ic_more_vert_black_24dp" />
 </RelativeLayout>

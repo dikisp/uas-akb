@@ -5,6 +5,7 @@ package com.diki.myprofile.main;
 // IF-8
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
@@ -14,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.diki.myprofile.Model.AppDatabase;
 import com.diki.myprofile.Preferences;
 import com.diki.myprofile.login.Login;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -23,6 +25,7 @@ import com.diki.myprofile.list_friends.ListFriendsFragment;
 import com.diki.myprofile.profile.ProfileFragment;
 
 public class MainActivity extends AppCompatActivity {
+    public static AppDatabase db;
     private int menuProfile = 0;
     private int menuContact = 1;
     private int menuListFriends = 2;
@@ -47,6 +50,10 @@ public class MainActivity extends AppCompatActivity {
                 Preferences.clearLoggedInUser(getBaseContext());
                 startActivity(new Intent(getBaseContext(), Login.class));
                 finish();
+
+
+                db = Room.databaseBuilder(getApplicationContext(),
+                        AppDatabase.class, "db").allowMainThreadQueries().build();
             }
         });
 

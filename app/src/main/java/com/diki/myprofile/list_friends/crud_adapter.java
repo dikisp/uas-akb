@@ -11,6 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -25,9 +27,6 @@ import com.diki.myprofile.R;
 
 import java.util.ArrayList;
 
-/**
- * Created by Oclemy for ProgrammingWizards TV Channel and https://www.camposha.info.
- */
 public class crud_adapter extends RecyclerView.Adapter<crud_adapter.ViewHolder>{
 
     private ArrayList<FriendData> daftarFriend;
@@ -35,9 +34,6 @@ public class crud_adapter extends RecyclerView.Adapter<crud_adapter.ViewHolder>{
     private AppDatabase db;
 
     public crud_adapter(ArrayList<FriendData> friends, Context ctx) {
-        /**
-         * Inisiasi data dan variabel yang akan digunakan
-         */
         daftarFriend = friends;
         context = ctx;
 
@@ -48,18 +44,18 @@ public class crud_adapter extends RecyclerView.Adapter<crud_adapter.ViewHolder>{
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
-        /**
-         * Inisiasi View
-         * Di tutorial ini kita hanya menggunakan data String untuk tiap item
-         * dan juga view nya hanyalah satu TextView
-         */
-        TextView tvTitle;
-        CardView cvMain;
+
+        TextView tvTitle,tvAddres,tvPhone;
+        LinearLayout cvMain;
+        ImageView imageView;
 
         ViewHolder(View v) {
             super(v);
             tvTitle = v.findViewById(R.id.tv_friend_nama);
+            tvAddres = v.findViewById(R.id.tv_item_alamat);
+            tvPhone = v.findViewById(R.id.tv_item_phone);
             cvMain = v.findViewById(R.id.cv_friend);
+            imageView = v.findViewById(R.id.moreTool);
         }
     }
 
@@ -75,14 +71,17 @@ public class crud_adapter extends RecyclerView.Adapter<crud_adapter.ViewHolder>{
     public void onBindViewHolder(ViewHolder holder, final int position) {
 
         final String name = daftarFriend.get(position).getNama();
-
         holder.tvTitle.setText(name);
 
-        holder.cvMain.setOnLongClickListener(new View.OnLongClickListener() {
+        final String address = daftarFriend.get(position).getAlamat();
+        holder.tvAddres.setText(address);
 
+        final String phone = daftarFriend.get(position).getTelepon();
+        holder.tvPhone.setText(phone);
+
+        holder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onLongClick(View view) {
-
+            public void onClick(View v) {
                 final Dialog dialog = new Dialog(context);
                 dialog.setContentView(R.layout.view_dialog);
                 dialog.setTitle("Pilih Aksi");
@@ -91,7 +90,6 @@ public class crud_adapter extends RecyclerView.Adapter<crud_adapter.ViewHolder>{
                 Button editButton = dialog.findViewById(R.id.bt_edit_data);
                 Button delButton = dialog.findViewById(R.id.bt_delete_data);
 
-                //apabila tombol edit diklik
                 editButton.setOnClickListener(
                         new View.OnClickListener() {
                             @Override
@@ -102,7 +100,6 @@ public class crud_adapter extends RecyclerView.Adapter<crud_adapter.ViewHolder>{
                         }
                 );
 
-                //apabila tombol delete diklik
                 delButton.setOnClickListener(
                         new View.OnClickListener() {
                             @Override
@@ -112,9 +109,9 @@ public class crud_adapter extends RecyclerView.Adapter<crud_adapter.ViewHolder>{
                             }
                         }
                 );
-                return true;
             }
         });
+
         holder.tvTitle.setText(name);
     }
 
@@ -126,7 +123,7 @@ public class crud_adapter extends RecyclerView.Adapter<crud_adapter.ViewHolder>{
     }
 
     private void onEditBarang(int position) {
-        context.startActivity(AddFriend.getActIntent((Activity) context).putExtra("data", (Parcelable) daftarFriend.get(position)));
+        context.startActivity(AddFriend.getActIntent((Activity) context).putExtra("data", daftarFriend.get(position)));
     }
 
 
